@@ -43,7 +43,7 @@ const Editv2 = () => {
       setErrorMessageName(errorName);
     } else {
       axios
-        .put("http://localhost:3001/api/v2/product/" + id, {
+        .put(process.env.REACT_APP_BASEURL + "/v2/product/" + id, {
           name,
           price,
           stock,
@@ -63,7 +63,7 @@ const Editv2 = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/v2/product/" + id)
+      .get(process.env.REACT_APP_BASEURL + "/v2/product/" + id)
       .then((response) => setProduct(response.data[0]))
       .catch((error) => console.log(error));
   }, [id]);

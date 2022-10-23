@@ -9,7 +9,7 @@ const Detailv2 = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/v2/product/" + id)
+      .get(process.env.REACT_APP_BASEURL + "/v2/product/" + id)
       .then((response) => setProduct(response.data[0]))
       .catch((error) => console.log(error));
     return () => {    

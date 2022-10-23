@@ -15,7 +15,7 @@ const Home = () => {
     let deleteItem = await window.confirm("Hapus produk ini?");
     if (deleteItem) {
       axios
-        .delete("http://localhost:3001/api/v1/product/" + _id)
+        .delete(process.env.REACT_APP_BASEURL + "/v1/product/" + _id)
         .then(() => {
           alert("Produk berhasil dihapus!");
           window.location.reload();
@@ -26,7 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/v1/product?name=" + search)
+      .get(process.env.REACT_APP_BASEURL + "/v1/product?name=" + search)
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error));
   }, [search]);

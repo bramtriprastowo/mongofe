@@ -46,7 +46,7 @@ const Tambahv2 = () => {
       setErrorMessageName(errorName);
     } else {
       axios
-        .post("http://localhost:3001/api/v2/product", {
+        .post(process.env.REACT_APP_BASEURL + "/v2/product", {
           name,
           price,
           stock,

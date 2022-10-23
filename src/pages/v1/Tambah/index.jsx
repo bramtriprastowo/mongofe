@@ -46,7 +46,7 @@ const Tambah = () => {
       setErrorMessageName(errorName);
     } else {
       axios
-        .post("http://localhost:3001/api/v1/product", {
+        .post(process.env.REACT_APP_BASEURL + "/v1/product", {
           name,
           price,
           stock,
@@ -62,7 +62,6 @@ const Tambah = () => {
     }
   };
 
-  console.log(product.price.toString().length);
   return (
     <div className="main">
       <div className="card">

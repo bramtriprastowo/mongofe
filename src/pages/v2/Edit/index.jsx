@@ -65,6 +65,9 @@ const Editv2 = () => {
     axios
       .get(process.env.REACT_APP_BASEURL + "/v2/product/" + id)
       .then((response) => setProduct(response.data[0]))
+      .then(() => setProduct((prev) => {
+        return { ...prev, status: true };
+      }))
       .catch((error) => console.log(error));
   }, [id]);
 

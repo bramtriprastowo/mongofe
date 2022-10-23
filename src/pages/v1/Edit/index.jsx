@@ -6,7 +6,7 @@ import Input from "../../../components/Input";
 
 const Edit = () => {
   const id = useParams().id;
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
   const [errorMessageName, setErrorMessageName] = useState([]);
 
   const handleChange = (e) => {
@@ -65,6 +65,9 @@ const Edit = () => {
     axios
       .get(process.env.REACT_APP_BASEURL + "/v1/product/" + id)
       .then((response) => setProduct(response.data))
+      .then(() => setProduct((prev) => {
+        return { ...prev, status: true };
+      }))
       .catch((error) => console.log(error));
   }, [id]);
 
